@@ -14,9 +14,10 @@
   "engines": {
     "node": "0.10.x",
     "npm": "2.13.x"
-    },
+  },
   "dependencies": {
     "express": "^4.13.3",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "johnny-five": "^0.9.27"
   }
 }
