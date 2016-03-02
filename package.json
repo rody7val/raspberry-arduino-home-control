@@ -1,0 +1,22 @@
+{
+  "name": "led",
+  "version": "1.0.0",
+  "description": "Local server home controller",
+  "author": {
+    "name": "Rodolfo Valguarnera",
+    "email": "rod7val@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rody7val/raspberry-arduino-home-control"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.13.x"
+    },
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0"
+  }
+}

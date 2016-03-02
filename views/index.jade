@@ -1,0 +1,9 @@
+//- index.jade
+extends ./layout.jade
+block content
+	form#item(action='/start', method='get')
+		input.btn.btn-success(type='submit', value='Encender')
+	form#item(action='/stop', method='get')
+		input.btn.btn-success(type='submit', value='Apagar')
+	form#item(action='/blink', method='get')
+		input.btn.btn-success(type='submit', value='Parpadear')
