@@ -1,9 +1,29 @@
 //- layout.jade
 doctype html
-html(lang='en')
+html(lang='es')
   head
-    title Default title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    block title
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css', integrity='sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj', crossorigin='anonymous', rel="stylesheet")
+    style.
+        .btn-bs {
+            font-weight: 500;
+            color: #7952b3;
+            border-color: #7952b3;
+        }
+        .btn-bs:hover, .btn-bs:focus, .btn-bs:active {
+            color: #fff;
+            background-color: #7952b3;
+            border-color: #7952b3;
+        }
+        .btn{
+            margin-bottom: 3px;
+        }
   body
     div#load
+      header.navbar.navbar-light.navbar-static-top.bd-navbar
+        div.container
+            h3 Nac-Arduino
       #content.container
         block content

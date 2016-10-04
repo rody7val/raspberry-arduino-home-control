@@ -1,9 +1,8 @@
 //- index.jade
+block title
+	title Nac-Arduino
 extends ./layout.jade
 block content
-	form#item(action='/start', method='get')
-		input.btn.btn-success(type='submit', value='Encender')
-	form#item(action='/stop', method='get')
-		input.btn.btn-success(type='submit', value='Apagar')
-	form#item(action='/blink', method='get')
-		input.btn.btn-success(type='submit', value='Parpadear')
+	a.btn.btn-bs.btn-outline(href='/led') Led
+	br
+	a.btn.btn-bs.btn-outline(href='/servo') Servo
