@@ -21,8 +21,10 @@
     "start": "node app"
   },
   "dependencies": {
+    "dotenv": "^2.0.0",
     "express": "^4.13.3",
     "jade": "^1.11.0",
-    "johnny-five": "^0.9.27"
+    "johnny-five": "^0.9.27",
+    "nodemailer": "^1.10.0"
   }
 }

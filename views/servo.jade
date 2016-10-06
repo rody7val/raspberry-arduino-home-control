@@ -1,10 +1,10 @@
-//- index.jade
+//- servo.jade
 extends ./layout.jade
 block title
 	title Servo
 block content
-	form#item(action='/sweep-servo', method='get')
+	form(action='/sweep-servo', method='get')
 		input.btn.btn-success(type='submit', value='Sweep')
-	form#item(action='/stop-servo', method='get')
+	form(action='/stop-servo', method='get')
 		input.btn.btn-success(type='submit', value='Stop')
 	a.btn.btn-bs.btn-outline(href='/') Volver

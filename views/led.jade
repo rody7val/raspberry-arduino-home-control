@@ -1,12 +1,12 @@
-//- index.jade
+//- led.jade
 extends ./layout.jade
 block title
 	title Led
 block content
-	form#item(action='/start-led', method='get')
+	form(action='/start-led', method='get')
 		input.btn.btn-success(type='submit', value='Encender')
-	form#item(action='/stop-led', method='get')
+	form(action='/stop-led', method='get')
 		input.btn.btn-success(type='submit', value='Apagar')
-	form#item(action='/blink-led', method='get')
+	form(action='/blink-led', method='get')
 		input.btn.btn-success(type='submit', value='Parpadear')
 	a.btn.btn-bs.btn-outline(href='/') Volver

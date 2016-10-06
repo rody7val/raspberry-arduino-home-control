@@ -1,0 +1,12 @@
+//- email.jade
+extends ./layout.jade
+block title
+	title Email
+block content
+	form.form-group(action='/email-send', method='get')
+		h6 Probar Email-Alerta
+		input.form-control(type='email', name='email', placeholder='Ingreasar email', required)
+		input.form-control(type='text', name='message', placeholder='Ingreasar mensaje de Alerta', required)
+		div.float-right
+			a.btn.btn-bs.btn-outline(href='/') Volver
+			input.btn.btn-success(type='submit', value='Enviar')
