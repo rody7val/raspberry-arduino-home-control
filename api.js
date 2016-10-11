@@ -1,60 +1,42 @@
 var five = require("johnny-five");
 var board = new five.Board();
 
-// controllers
-var email = require('./controllers/email_controller');
-
 module.exports = function (app, express) {
 
   var api = express.Router();
 
+  // Home page
+  api.get('/', function(req, res, next){
+    res.render( 'index');
+  });
+
   board.on("ready", function() {
-
-    // Home page
-    api.get('/', function(req, res, next){
-      res.render( 'index');
-    });
-
+    
+    // controllers
+    var email_controllers = require('./controllers/email_controller');
+    var led_controllers = require('./controllers/led_controller');
+    var servo_controllers = require('./controllers/servo_controller');
+    var sms_controllers = require('./controllers/sms_controller');
+    
     // led
-    api.get('/led', function(req, res, next){
-      res.render( 'led');
-      var led = new five.Led(13);
-      api.get('/start-led', function(req, res){
-        led.stop();
-        led.on();
-      });
-      api.get('/stop-led', function(req, res){
-        led.stop();
-        led.off();
-      })
-      api.get('/blink-led', function(req, res){
-        led.stop();
-        led.blink(500);
-      })   
-    });
+    api.get('/led', led_controllers.index);
+    api.get('/led-on', led_controllers.on);
+    api.get('/led-off', led_controllers.off);
+    api.get('/led-blink', led_controllers.blink);
 
     // servo
-    api.get('/servo', function(req, res, next){
-      res.render('servo');
-      var servo = new five.Servo(9);
-      api.get('/sweep-servo', function(req, res){
-        servo.sweep();
-      });
-      api.get('/stop-servo', function(req, res){
-        servo.stop();
-      });
-    });
+    api.get('/servo', servo_controllers.index);
+    api.get('/servo-sweep', servo_controllers.sweep);
+    api.get('/servo-stop', servo_controllers.stop);
 
     // email
-    api.get('/email', function(req, res, next){
-      res.render('email');
-      api.get('/email-send', function(req, res){
-        var send = email.sendMail(req.query.email, req.query.message);
-        console.log("-> ", send);
-        if (send) res.render('email-send', {text: 'Alerta enviada con exito!'});
-        else res.render('email-send', {text: 'Ups! Lo sentimos. Ah ocurrido un error, vuelva a intenatrlo.'});
-      });
-    });
+    api.get('/email', email_controllers.index);
+    api.get('/email-send', email_controllers.send);
+
+    // sms
+    api.get('/sms', sms_controllers.index);
+    api.get('/sms-send', sms_controllers.send);
+
   });
 
 

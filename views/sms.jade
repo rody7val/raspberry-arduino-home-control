@@ -1,0 +1,12 @@
+//- sms.jade
+extends ./layout.jade
+block title
+	title SMS
+block content
+	form.form-group(action='/sms-send', method='get')
+		h6 Probar SMS-Alerta
+		input.form-control(type='text', name='to', placeholder='Ingreasar numero de telefono', required)
+		input.form-control(type='text', name='message', placeholder='Ingreasar mensaje de Alerta', required)
+		div.float-right
+			a.btn.btn-bs.btn-outline(href='/') Volver
+			input.btn.btn-success(type='submit', value='Enviar')

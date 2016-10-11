@@ -25,6 +25,7 @@
     "express": "^4.13.3",
     "jade": "^1.11.0",
     "johnny-five": "^0.9.27",
-    "nodemailer": "^1.10.0"
+    "nodemailer": "^1.10.0",
+    "twilio": "^2.11.0"
   }
 }

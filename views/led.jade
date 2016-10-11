@@ -3,10 +3,19 @@ extends ./layout.jade
 block title
 	title Led
 block content
-	form(action='/start-led', method='get')
-		input.btn.btn-success(type='submit', value='Encender')
-	form(action='/stop-led', method='get')
-		input.btn.btn-success(type='submit', value='Apagar')
-	form(action='/blink-led', method='get')
-		input.btn.btn-success(type='submit', value='Parpadear')
+	form(action='/led-on', method='get')
+		if eventBoard.led.on
+			input.btn.btn-success(type='submit', value='Encender', disabled)
+		else
+			input.btn.btn-success(type='submit', value='Encender')
+	form(action='/led-off', method='get')
+		if eventBoard.led.off
+			input.btn.btn-success(type='submit', value='Apagar', disabled)
+		else
+			input.btn.btn-success(type='submit', value='Apagar')
+	form(action='/led-blink', method='get')
+		if eventBoard.led.blink
+			input.btn.btn-success(type='submit', value='Parpadear', disabled)
+		else
+			input.btn.btn-success(type='submit', value='Parpadear')
 	a.btn.btn-bs.btn-outline(href='/') Volver

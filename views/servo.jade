@@ -3,8 +3,14 @@ extends ./layout.jade
 block title
 	title Servo
 block content
-	form(action='/sweep-servo', method='get')
-		input.btn.btn-success(type='submit', value='Sweep')
-	form(action='/stop-servo', method='get')
-		input.btn.btn-success(type='submit', value='Stop')
+	form(action='/servo-sweep', method='get')
+		if eventBoard.servo.sweep
+			input.btn.btn-success(type='submit', value='Mover', disabled)
+		else
+			input.btn.btn-success(type='submit', value='Mover')
+	form(action='/servo-stop', method='get')
+		if eventBoard.servo.stop
+			input.btn.btn-success(type='submit', value='Parar', disabled)
+		else
+			input.btn.btn-success(type='submit', value='Parar')
 	a.btn.btn-bs.btn-outline(href='/') Volver

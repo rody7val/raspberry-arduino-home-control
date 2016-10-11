@@ -1,36 +1,12 @@
-var nodemailer = require('nodemailer');
-var config = require('../config');
+var email = require('../utils/email_client');
 
-module.exports = {
-	sendMail: function (to, msj) {
-        var _status;
+exports.index = function(req, res, next){
+	res.render('email');
+}
 
-		var transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: config.email.user,
-                pass: config.email.pass
-            },
-            debug: true,
-            tls: {rejectUnauthorized: false} 
-        });
-
-    	var mailOptions = {
-    	    from: 'alarmas_tecnicas@gmail.com',
-    	    to: to,
-    	    subject: 'Email-Alert',
-    	    text: msj
-    	}
-
-    	transporter.sendMail(mailOptions, function (error, info) {
-    	    if (error) {
-    	        _status = false;
-                console.log(error);
-    	    }
-    	    _status = true;
-            console.log('Message sent: ' + info.response);
-    	});
-
-        return { _status };
-	}
+exports.send = function(req, res){
+	var send = email.sendMail(req.query.email, req.query.message);
+	var text = (send) ? 'Alerta email enviada con exito!' : 'Ups! Lo sentimos. Ha ocurrido un error, vuelva a intenatrlo.'
+	console.log("-> ", send);
+	res.render('email-send', { text: text });
 }
