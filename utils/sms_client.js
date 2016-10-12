@@ -1,6 +1,6 @@
+var config = require('../config');
 var client = require('twilio')(config.sms.accountSid, config.sms.authToken);
 var admins = require('../administrators.json');
-var config = require('../config');
 var _status = null;
 
 function formatMessage(errorToReport) {
